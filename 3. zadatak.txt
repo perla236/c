@@ -1,0 +1,44 @@
+
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+//funkcija za granicne vrijednosti
+double rand_ab(double a, double b){
+return a + (double)rand() / RAND_MAX * (b - a);
+}
+int main()
+{
+    int array[32], i, suma=0, pz=-1, pot=1;
+    
+    //popunjavanje polja sa 0 i 1  
+    srand (( unsigned) time ( NULL ));
+    for (i = 0; i < 32; i++){
+    array[i] = rand_ab( -1, 2);
+    }
+    
+    
+    
+    //ispis polja za provjeru
+    printf("Ovo je polje popunjeno 0 i 1\n");
+    printf("{");
+    for (i = 0; i < 32; i++){
+    printf("%d", array[i]);
+    }
+    printf("}\n \n");
+    
+    //zbrajanje potencija
+    for (i=31;i>-1;i--){
+    suma=(array[i] * pot) + suma;
+    pot= pot*2;
+    }
+    //uvjet ispis ako je broj negativan
+    if (array[0]==1){
+        suma=suma*pz;
+        printf("Rezultat je: -%d",suma);
+    }
+    //ispis ako je broj pozitivan
+    else{
+    printf("Rezultat je: %d",suma);
+    }
+    return 0;
+}

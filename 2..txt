@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() 
+{
+    int bin[8];
+    //petlja za popunjavanje polja 1 i 0 (binarnim brojem)
+    for (int i = 0; i < 8; i++) {
+        do {
+            printf("Unesi %d broj ", i);
+            scanf("%d", &bin[i]);
+        } while (bin[i] > 1 || bin[i] < 0);
+    }
+    //zbroj potencija i pretvorba u decimalni
+    int dec = 0;
+    for (int i = 0; i < 8; i++) {
+        dec += (int) (bin[i] * pow(2, (8 - 1) - i));
+    }
+    //ispis broja
+    printf("Decimalni broj: %d", dec);
+
+    return 0;
+}

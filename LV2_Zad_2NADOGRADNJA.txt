@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+int main()
+{
+    char *array_days[7] = {"Ponedjeljak", "Utorak", "Srijeda", "Cetvrtak", "Petak", "Subota", "Nedjelja"};
+    int i, numDay,samog,sugl,sum, array_days_nums[7],j;
+    char day;
+    do
+    {
+        printf("Unesi broj dana: \n");
+        scanf("%d", &i);
+        if(i<1 || i>7)
+        {
+            printf("Krivo uneseni broj za dan\n");
+        }
+        else
+        {
+            printf("Dan: %s \n", *(array_days + (i-1)));
+        }
+    }
+    while (i<1 || i>7);
+    
+   for(i=0;i<7;i++){
+       int counter=0;
+     
+       for(j=0;j<strlen(array_days[i]);j++){
+   if(array_days[j] != 'a' || array_days[j] != 'e' || array_days[j] != 'i' || array_days[j] != 'o' || array_days[j] != 'u' ){
+   counter++;
+   }
+   array_days_nums[i]=counter;
+   }
+       
+   }
+    for(i=0;i<7;i++){
+    printf("%d ",array_days_nums[i]);
+    }
+   //numDay=strlen (array_days[1]);
+    //printf("%d", numDay);
+
+    return 0;
+}
